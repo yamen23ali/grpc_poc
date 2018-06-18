@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "org.grpc.speech";
+option java_outer_classname = "SpeechProto";
+option objc_class_prefix = "SPEEs";
+
+package speechService;
+
+// The greeting service definition.
+service SpeechService {
+  // Streams a many greetings
+  rpc Recognize (stream SpeechRequest) returns (stream SpeechResponse) {}
+}
+
+// The request message containing the user's name.
+message SpeechRequest {
+  bytes message = 1;
+}
+
+// The response message containing the greetings
+message SpeechResponse {
+  bytes message = 1;
+}
